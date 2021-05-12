@@ -4,6 +4,7 @@ const result = document.querySelector('.result');
 
 btn.addEventListener('click', () => {
   result.innerText = `Result: ${MathChallenge(input.value)}`;
+  input.value = '';
 });
 
 const highRegExp = /\(\d+[\+\-\*\/]\d+\)/;
