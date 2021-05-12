@@ -4,6 +4,7 @@ const result = document.querySelector('.result');
 
 btn.addEventListener('click', () => {
   result.innerText = `Result: ${MathChallenge(input.value)}`;
+  input.value = '';
 });
 
 const highRegExp = /\(\d+[\+\-\*\/]\d+\)/;
@@ -86,10 +87,3 @@ function getOperands(str) {
   return res;
 }
 
-console.log(MathChallenge('12*3'));
-console.log(MathChallenge('6*( 4 / 2 )+3*1'));
-console.log(MathChallenge('7*7'));
-console.log(MathChallenge('(8-7)+2*7'));
-console.log(MathChallenge('6 * 8+(7 - 1)*3-(2 * 2)/2-7'));
-console.log(MathChallenge('123*321'));
-console.log(MathChallenge('ass '));
