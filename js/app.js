@@ -11,10 +11,11 @@ const highRegExp = /\(\d+[\+\-\*\/]\d+\)/;
 const midRegExp = /\d+[\*\/]\d+/;
 const lowRegExp = /\d+[\+\-]\d+/;
 const charRegExp = /[^0-9\+\-\*\/\(\)]/g;
+const wrongInputRegExp = /[\+\-\*\/]{2,}/g
 
 function MathChallenge(str) {
   str = str.replace(/\s/g, '');
-  if (charRegExp.test(str)) {
+  if (charRegExp.test(str) || wrongInputRegExp.test(str)) {
     return 'Incorrect input';
   }
   while (isNaN(Number(str))) {
@@ -86,4 +87,3 @@ function getOperands(str) {
   }
   return res;
 }
-
