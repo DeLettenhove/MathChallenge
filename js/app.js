@@ -9,8 +9,13 @@ btn.addEventListener('click', () => {
 const highRegExp = /\(\d+[\+\-\*\/]\d+\)/;
 const midRegExp = /\d+[\*\/]\d+/;
 const lowRegExp = /\d+[\+\-]\d+/;
+const charRegExp = /[^0-9\+\-\*\/\(\)]/g;
 
 function MathChallenge(str) {
+  str = str.replace(/\s/g, '');
+  if (charRegExp.test(str)) {
+    return 'Incorrect input';
+  }
   while (isNaN(Number(str))) {
     if (str.includes('(') || str.includes(')')) {
       str = calc(highRegExp, str);
@@ -82,8 +87,9 @@ function getOperands(str) {
 }
 
 console.log(MathChallenge('12*3'));
-console.log(MathChallenge('6*(4/2)+3*1'));
+console.log(MathChallenge('6*( 4 / 2 )+3*1'));
 console.log(MathChallenge('7*7'));
 console.log(MathChallenge('(8-7)+2*7'));
-console.log(MathChallenge('6*8+(7-1)*3-(2*2)/2-7'));
+console.log(MathChallenge('6 * 8+(7 - 1)*3-(2 * 2)/2-7'));
 console.log(MathChallenge('123*321'));
+console.log(MathChallenge('ass '));
